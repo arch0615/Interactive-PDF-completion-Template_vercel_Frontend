@@ -96,7 +96,7 @@ function App() {
                     <div className="logo-tri-solid" />
                   </div>
                   <div className="logo-text">
-                    <strong>HPK RECYCLING</strong>
+                    <strong>NATIONWIDE WASTE &amp; RECYCLING</strong>
                     <span>RETHINKING THE FUTURE OF WASTE</span>
                   </div>
                 </div>
@@ -108,7 +108,7 @@ function App() {
                 </div>
               </div>
               <div className="pdf-license">
-                Registered Waste Carriers License No. CBDU 448313
+                Registered Waste Carriers License No. CBDU620435
               </div>
 
               {currentPage === 1 ? (

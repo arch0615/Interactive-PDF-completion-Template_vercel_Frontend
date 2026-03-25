@@ -333,7 +333,7 @@ export default function PDFPage2({ formData, updateField, updateNested }) {
       <div className="pdf-section">
         <p className="pdf-note" style={{ marginBottom: '16px', padding: 0, fontStyle: 'normal' }}>
           Unless otherwise agreed above, the initial service period will be for 52 weeks.
-          HPK Recycling Limited standard terms and conditions apply. Terms and conditions printed on reverse.
+          Nationwide Waste &amp; Recycling Limited standard terms and conditions apply. Terms and conditions printed on reverse.
         </p>
 
         <div className="pdf-row">
