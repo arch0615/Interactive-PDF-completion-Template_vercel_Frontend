@@ -1,0 +1,783 @@
+/* =========================================
+   Global
+   ========================================= */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', Roboto, -apple-system, sans-serif;
+  background: #e8ebf0;
+  color: #222;
+  font-size: 13px;
+}
+
+/* =========================================
+   App Header
+   ========================================= */
+.app-header {
+  background: linear-gradient(135deg, #1a365d 0%, #2d4a7a 100%);
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+}
+.app-header h1 { font-size: 22px; margin-bottom: 2px; }
+.app-header p { opacity: 0.7; font-size: 13px; }
+
+/* =========================================
+   Layout
+   ========================================= */
+.app-layout {
+  display: flex;
+  max-width: 1500px;
+  margin: 0 auto;
+  gap: 24px;
+  padding: 20px 24px;
+  align-items: flex-start;
+}
+.form-panel { flex: 1.3; min-width: 0; }
+.preview-panel {
+  flex: 0.7;
+  position: sticky;
+  top: 20px;
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.preview-panel h2 {
+  font-size: 15px;
+  margin-bottom: 10px;
+  color: #1a365d;
+}
+
+/* =========================================
+   Page Navigation
+   ========================================= */
+.page-nav {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+.page-nav-btn {
+  padding: 10px 28px;
+  border: 2px solid #cbd5e0;
+  background: white;
+  color: #555;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.15s;
+}
+.page-nav-btn:hover { border-color: #1a365d; color: #1a365d; }
+.page-nav-btn.active {
+  background: #1a365d;
+  border-color: #1a365d;
+  color: white;
+}
+
+/* =========================================
+   PDF Page Container (the "paper")
+   ========================================= */
+.pdf-page {
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  padding: 0;
+  overflow: hidden;
+}
+
+/* =========================================
+   PDF Header (logo + company info)
+   ========================================= */
+.pdf-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 32px;
+  background: #4f5152;
+}
+.pdf-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Logo graphic — two perfect right triangles with overlapping bases */
+.logo-graphic {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+}
+
+/* Left triangle — stripes parallel to hypotenuse, right angle at bottom-left */
+.logo-tri-striped {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(0 0, 0 100%, 100% 100%);
+  background:
+    repeating-linear-gradient(
+      45deg,
+      #374151 0px,
+      #374151 1.5px,
+      transparent 1.5px,
+      transparent 4px
+    ),
+    #b0b8c4;
+}
+
+/* Right triangle — solid white, right angle at bottom-right */
+.logo-tri-solid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(100% 0, 0 100%, 100% 100%);
+  background: white;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.logo-text strong {
+  font-size: 13px;
+  color: white;
+  letter-spacing: 2px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.logo-text span {
+  font-size: 7px;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 400;
+}
+.pdf-company-info {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 12px;
+  color: white;
+}
+.pdf-company-info strong { font-size: 14px; }
+.pdf-company-info .link { color: white; text-decoration: underline; }
+
+.pdf-license {
+  text-align: center;
+  font-size: 11px;
+  color: white;
+  padding: 6px 0;
+  background: #4f5152;
+  border-bottom: 3px solid #3d3e3f;
+}
+
+/* =========================================
+   PDF Section Header (grey bar)
+   ========================================= */
+.pdf-section-header {
+  background: #e8ecf0;
+  padding: 8px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #111;
+  border-bottom: 1px solid #cdd3da;
+  border-top: 1px solid #cdd3da;
+}
+
+/* =========================================
+   PDF Section Body
+   ========================================= */
+.pdf-section {
+  padding: 12px 32px 16px;
+}
+
+/* No outline on any input/textarea focus */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+}
+
+/* =========================================
+   PDF Form Rows & Fields
+   ========================================= */
+.pdf-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 6px;
+  align-items: flex-end;
+}
+.pdf-row.align-center { align-items: center; }
+
+.pdf-field {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 6px;
+  min-width: 0;
+}
+
+
+
+.flex-1 { flex: 1; }
+.flex-2 { flex: 2; }
+.flex-3 { flex: 3; }
+
+/* Horizontal label + checkbox with space-between (business type fields) */
+.pdf-field-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  cursor: pointer;
+  padding: 2px 0;
+}
+
+.pdf-label {
+  font-size: 12px;
+  color: #444;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.pdf-label-static {
+  font-size: 12px;
+  color: #444;
+  white-space: nowrap;
+  margin-right: 8px;
+}
+
+/* Underline-style inputs (like PDF blanks) */
+.pdf-field input[type="text"],
+.pdf-field input[type="tel"],
+.pdf-field input[type="email"],
+.pdf-field input[type="date"] {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  border-bottom: 1px solid #999;
+  padding: 4px 2px;
+  font-size: 13px;
+  background: transparent;
+  border-radius: 0;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.pdf-field input:focus {
+  border-bottom-color: #2b6cb0;
+  border-bottom-width: 2px;
+  margin-bottom: -1px;
+}
+
+
+.pdf-field input:disabled {
+  border-bottom-style: dashed;
+  color: #aaa;
+}
+
+/* Linked inputs: group behavior */
+.linked-inputs {
+  cursor: text;
+  border-radius: 4px;
+  transition: box-shadow 0.15s;
+}
+.linked-inputs.linked-focused {
+  border-radius: 4px;
+}
+.linked-inputs.linked-focused .linked-input {
+  border-bottom-color: #2b6cb0;
+}
+.linked-inputs.linked-all-selected .linked-input {
+  background: rgba(43, 108, 176, 0.08);
+}
+
+/* Linked inputs: consistent two-column layout */
+.linked-left { flex: 3; display: flex; min-width: 0; }
+.linked-right { flex: 2; display: flex; min-width: 0; }
+.linked-full { flex: 1; display: flex; min-width: 0; }
+
+/* Checkboxes styled like PDF squares */
+.pdf-checkbox {
+  width: 15px;
+  height: 15px;
+  accent-color: #1a365d;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.pdf-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.pdf-checkbox-label input[type="radio"] {
+  width: 14px;
+  height: 14px;
+  accent-color: #1a365d;
+}
+
+/* =========================================
+   PDF Inline Fields
+   ========================================= */
+.pdf-field-inline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+.pdf-field-inline.compact { gap: 4px; }
+.pdf-field-inline input[type="text"],
+.pdf-field-inline input[type="email"] {
+  flex: 1;
+  border: none;
+  border-bottom: 1px solid #999;
+  padding: 4px 2px;
+  font-size: 13px;
+  background: transparent;
+  border-radius: 0;
+  outline: none;
+}
+.pdf-field-inline input:focus {
+  border-bottom-color: #2b6cb0;
+  border-bottom-width: 2px;
+}
+.pdf-field-inline input:disabled {
+  border-bottom-style: dashed;
+  color: #aaa;
+}
+
+.pdf-input-sm {
+  width: 80px !important;
+  flex: none !important;
+}
+.pdf-input-xs {
+  width: 60px !important;
+  flex: none !important;
+}
+.pdf-label-after {
+  font-size: 11px;
+  color: #666;
+}
+
+/* =========================================
+   PDF Invoicing Table (bordered grid like PDF)
+   ========================================= */
+.pdf-inv-table {
+  width: calc(100% - 64px);
+  margin: 16px 32px 8px;
+  border-collapse: collapse;
+  border: 1px solid #999;
+  font-size: 12px;
+}
+.pdf-inv-td {
+  border: 1px solid #999;
+  padding: 8px 12px;
+  vertical-align: middle;
+}
+.pdf-inv-payment {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.pdf-inv-advance-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.pdf-inv-weeks-input {
+  width: 50px;
+  border: none;
+  border-bottom: 1px solid #999;
+  padding: 2px;
+  font-size: 12px;
+  background: transparent;
+  text-align: center;
+}
+.pdf-inv-no-bottom {
+  border-bottom: none !important;
+}
+.pdf-inv-no-top {
+  border-top: none !important;
+}
+.pdf-inv-weeks-cell {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+}
+.pdf-inv-weeks-cell .pdf-inv-weeks-input {
+  flex: 1;
+}
+
+.pdf-note {
+  font-size: 11px;
+  color: #666;
+  font-style: italic;
+  padding: 4px 32px;
+}
+.pdf-sub-label {
+  font-size: 12px;
+  color: #444;
+  margin: 10px 0 8px;
+}
+
+/* =========================================
+   PDF Waste Type Grid (matching PDF layout)
+   ========================================= */
+.pdf-waste-row {
+  display: flex;
+  gap: 0;
+  margin-top: 10px;
+}
+.pdf-waste-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 2px 0;
+}
+.pdf-waste-check-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+}
+.pdf-waste-code {
+  font-size: 11px;
+  color: #888;
+  margin-left: 20px;
+}
+
+/* Recovered items rows */
+.pdf-recovered-row {
+  display: flex;
+  gap: 0;
+  margin-bottom: 6px;
+  align-items: center;
+}
+.pdf-recovered-row .pdf-checkbox-label {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Other field with inline input */
+.pdf-other-field {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1.5;
+  cursor: pointer;
+  font-size: 12px;
+}
+.pdf-other-field input[type="text"] {
+  flex: 1;
+  border: none;
+  border-bottom: 1px solid #999;
+  padding: 3px 2px;
+  font-size: 12px;
+  background: transparent;
+  border-radius: 0;
+  min-width: 0;
+}
+
+/* =========================================
+   PDF Schedule Table
+   ========================================= */
+.pdf-table-wrapper {
+  overflow-x: auto;
+  margin-top: 10px;
+}
+
+.pdf-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #999;
+  font-size: 11px;
+}
+.pdf-table th {
+  background: #e8ecf0;
+  padding: 6px 4px;
+  text-align: center;
+  font-weight: 600;
+  color: #333;
+  border: 1px solid #999;
+  white-space: pre-line;
+  font-size: 10px;
+  line-height: 1.3;
+  vertical-align: bottom;
+}
+.pdf-table td {
+  border: 1px solid #ccc;
+  padding: 0;
+}
+.pdf-table td input {
+  width: 100%;
+  border: none;
+  padding: 6px 4px;
+  font-size: 12px;
+  text-align: center;
+  outline: none;
+  background: transparent;
+}
+.pdf-table td input:focus {
+  background: #f0f7ff;
+}
+
+/* =========================================
+   PDF Health & Safety Table
+   ========================================= */
+.pdf-hs-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #999;
+}
+.pdf-hs-table th {
+  background: #e8ecf0;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid #999;
+  text-align: center;
+}
+.pdf-hs-table th:first-child { text-align: left; }
+.pdf-hs-table td {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  font-size: 12px;
+}
+.pdf-hs-table .hs-label { width: auto; }
+.pdf-hs-table .hs-check {
+  width: 50px;
+  text-align: center;
+}
+.pdf-hs-table .hs-check input {
+  width: 16px;
+  height: 16px;
+  accent-color: #1a365d;
+  cursor: pointer;
+}
+.pdf-hs-table tr:nth-child(even) { background: #fafbfc; }
+
+/* =========================================
+   PDF Signatures
+   ========================================= */
+.pdf-signature-field {
+  display: flex;
+  flex-direction: column;
+}
+.pdf-signature-box {
+  border-bottom: 1px solid #999;
+  background: #fcfcfc;
+}
+.pdf-signature-canvas {
+  display: block;
+  cursor: crosshair;
+}
+.pdf-sig-clear {
+  align-self: flex-start;
+  margin-top: 4px;
+  background: none;
+  border: none;
+  font-size: 11px;
+  color: #888;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.pdf-sig-clear:hover { color: #333; }
+
+/* =========================================
+   Action Buttons
+   ========================================= */
+.form-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.form-toolbar .page-nav {
+  margin-bottom: 0;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn-nav {
+  background: white;
+  color: #1a365d;
+  border: 2px solid #1a365d;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-nav:hover {
+  background: #1a365d;
+  color: white;
+}
+
+.btn-preview {
+  background: #2b6cb0;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-preview:hover:not(:disabled) { background: #2c5282; }
+.btn-preview:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.btn-primary {
+  background: #1a365d;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-primary:hover:not(:disabled) { background: #2d4a7a; }
+.btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.btn-secondary {
+  background: white;
+  color: #666;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.btn-secondary:hover { background: #f7f7f7; }
+
+.btn-download {
+  display: inline-block;
+  background: #38a169;
+  color: white;
+  text-decoration: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+.btn-download:hover { background: #2f855a; }
+
+/* =========================================
+   Messages
+   ========================================= */
+.error-message {
+  background: #fff5f5;
+  color: #c53030;
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-top: 10px;
+  border: 1px solid #fed7d7;
+  font-size: 13px;
+}
+.success-message {
+  background: #f0fff4;
+  color: #276749;
+  padding: 14px;
+  border-radius: 6px;
+  margin-top: 10px;
+  border: 1px solid #c6f6d5;
+}
+.success-message p { margin-bottom: 6px; font-weight: 600; }
+
+/* =========================================
+   Preview Panel
+   ========================================= */
+.preview-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #ebf8ff;
+  border-radius: 6px;
+  color: #2b6cb0;
+  font-size: 13px;
+}
+.spinner {
+  width: 16px; height: 16px;
+  border: 2px solid #bee3f8;
+  border-top-color: #2b6cb0;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.pdf-preview { text-align: center; }
+.pdf-canvas {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+}
+.pdf-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 10px;
+}
+.pdf-nav button {
+  background: #edf2f7;
+  border: 1px solid #ccc;
+  padding: 5px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+.pdf-nav button:hover:not(:disabled) { background: #e2e8f0; }
+.pdf-nav button:disabled { opacity: 0.4; cursor: not-allowed; }
+.pdf-nav span { font-size: 12px; color: #666; }
+.pdf-preview-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 350px;
+  background: #f7fafc;
+  border: 2px dashed #ccc;
+  border-radius: 6px;
+  color: #999;
+  font-size: 13px;
+}
+
+/* =========================================
+   Responsive
+   ========================================= */
+@media (max-width: 1100px) {
+  .app-layout { flex-direction: column; }
+  .preview-panel { position: static; }
+}
+@media (max-width: 700px) {
+  .pdf-row { flex-direction: column; gap: 4px; }
+  .pdf-header { flex-direction: column; gap: 12px; }
+  .pdf-company-info { text-align: left; }
+  .pdf-box-row { flex-direction: column; gap: 8px; }
+  .pdf-checkbox-row { flex-direction: column; gap: 6px; }
+  .page-nav-btn { flex: 1; }
+}
