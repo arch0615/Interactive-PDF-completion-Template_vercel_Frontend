@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE = '/api/pdf';
+const API_BASE = `${import.meta.env.VITE_API_URL || ''}/api/pdf`;
 
 export const getTemplateInfo = () => axios.get(`${API_BASE}/template-info`);
 
