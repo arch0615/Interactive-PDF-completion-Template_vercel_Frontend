@@ -767,6 +767,149 @@ input:focus, textarea:focus, select:focus {
 }
 
 /* =========================================
+   Back Button
+   ========================================= */
+.btn-back {
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.15);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.btn-back:hover { background: rgba(255,255,255,0.25); }
+
+.app-header { position: relative; }
+
+/* =========================================
+   Template List Page
+   ========================================= */
+.template-list-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+.template-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #666;
+  padding: 80px 0;
+  font-size: 15px;
+}
+.template-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+.template-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 2px solid transparent;
+  width: 320px;
+}
+.template-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.14);
+  border-color: #2b6cb0;
+}
+.template-card.disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.template-card.disabled:hover {
+  transform: none;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  border-color: transparent;
+}
+
+/* --- Form preview inside the card --- */
+.template-preview-wrapper {
+  background: #f4f6f8;
+  border-bottom: 1px solid #e2e6ea;
+  height: 320px;
+  overflow: hidden;
+  position: relative;
+}
+.template-preview-scaler {
+  transform: scale(0.42);
+  transform-origin: top left;
+  width: 238%;    /* 1 / 0.42 ≈ 2.38 */
+  pointer-events: none;
+  user-select: none;
+}
+.template-preview-page {
+  background: white;
+}
+
+/* Placeholder for coming-soon templates */
+.template-placeholder-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #c0c8d0;
+}
+
+/* --- Card text body --- */
+.template-card-body {
+  padding: 18px 20px 20px;
+}
+.template-card-body h3 {
+  font-size: 16px;
+  color: #1a365d;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+.template-card-body p {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+.template-card-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.template-card-pages {
+  font-size: 12px;
+  color: #2b6cb0;
+  background: #ebf8ff;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+.template-card-badge {
+  font-size: 11px;
+  color: #999;
+  background: #f0f0f0;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+.template-card-action {
+  font-size: 13px;
+  color: #2b6cb0;
+  font-weight: 600;
+  margin-left: auto;
+}
+
+/* =========================================
    Responsive
    ========================================= */
 @media (max-width: 1100px) {

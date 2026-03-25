@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 import { generatePdf, getDownloadUrl, previewPdf } from '../utils/api';
 
-const initialState = {
+export const initialState = {
   // --- Accounts ---
   companyName: '',
   tradingAs: '',

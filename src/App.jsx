@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import './App.css';
 import PDFPage1 from './components/PDFPage1';
 import PDFPage2 from './components/PDFPage2';
@@ -7,6 +8,8 @@ import { useFormData } from './hooks/useFormData';
 import { getTemplateUrl } from './utils/api';
 
 function App() {
+  const { templateId } = useParams();
+  const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
   const {
     formData,
@@ -78,6 +81,9 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
+        <button className="btn-back" onClick={() => navigate('/')}>
+          &larr; Back to Templates
+        </button>
         <h1>Interactive PDF Completion Tool</h1>
         <p>Fill in the form below to generate a completed PDF</p>
       </header>
