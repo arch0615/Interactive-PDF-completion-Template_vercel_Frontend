@@ -2,51 +2,82 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import PDFPage1 from './PDFPage1';
+import Template2Page1 from './Template2Page1';
 import { initialState } from '../hooks/useFormData';
+import t2Logo from '../assets/t2-logo.png';
+import { initialStateT2 } from '../hooks/useFormDataTemplate2';
 
 const API_BASE = `${(import.meta.env.VITE_API_URL || '').replace(/\/+$/, '')}/api`;
 
 const noop = () => {};
 
 function FormPreview({ templateId }) {
-  if (templateId !== 'nationwide-waste') return null;
-
-  return (
-    <div className="template-preview-wrapper">
-      <div className="template-preview-scaler">
-        <div className="pdf-page template-preview-page">
-          {/* PDF Header */}
-          <div className="pdf-header">
-            <div className="pdf-logo">
-              <div className="logo-graphic">
-                <div className="logo-tri-striped" />
-                <div className="logo-tri-solid" />
+  if (templateId === 'nationwide-waste') {
+    return (
+      <div className="template-preview-wrapper">
+        <div className="template-preview-scaler">
+          <div className="pdf-page template-preview-page">
+            <div className="pdf-header">
+              <div className="pdf-logo">
+                <div className="logo-graphic">
+                  <div className="logo-tri-striped" />
+                  <div className="logo-tri-solid" />
+                </div>
+                <div className="logo-text">
+                  <strong>NATIONWIDE WASTE &amp; RECYCLING</strong>
+                  <span>RETHINKING THE FUTURE OF WASTE</span>
+                </div>
               </div>
-              <div className="logo-text">
-                <strong>NATIONWIDE WASTE &amp; RECYCLING</strong>
-                <span>RETHINKING THE FUTURE OF WASTE</span>
+              <div className="pdf-company-info">
+                <strong>Nationwide Waste &amp; Recycling Limited</strong>
+                <span>28 Dunkirk Road, Southport PR8 4RQ</span>
+                <span className="link">admin@nationwidewasteandrecycling.co.uk</span>
+                <span>Tel: 0800 1123443</span>
               </div>
             </div>
-            <div className="pdf-company-info">
-              <strong>Nationwide Waste &amp; Recycling Limited</strong>
-              <span>28 Dunkirk Road, Southport PR8 4RQ</span>
-              <span className="link">admin@nationwidewasteandrecycling.co.uk</span>
-              <span>Tel: 0800 1123443</span>
+            <div className="pdf-license">
+              Registered Waste Carriers License No. CBDU620435
             </div>
+            <PDFPage1
+              formData={initialState}
+              updateField={noop}
+              updateNested={noop}
+              updateServiceRow={noop}
+            />
           </div>
-          <div className="pdf-license">
-            Registered Waste Carriers License No. CBDU620435
-          </div>
-          <PDFPage1
-            formData={initialState}
-            updateField={noop}
-            updateNested={noop}
-            updateServiceRow={noop}
-          />
         </div>
       </div>
-    </div>
-  );
+    );
+  }
+
+  if (templateId === 'first-mile-wtn') {
+    return (
+      <div className="template-preview-wrapper">
+        <div className="template-preview-scaler">
+          <div className="pdf-page template-preview-page">
+            <div className="pdf-header t2-header">
+              <div className="t2-logo">
+                <img src={t2Logo} alt="logo" className="t2-logo-img" />
+                <span className="t2-logo-text">Nationwide Waste &amp; Recycling Limited</span>
+              </div>
+              <div className="t2-header-right">
+                <span>Page 1 of 2</span>
+              </div>
+            </div>
+            <div className="t2-title">Season Ticket Waste Transfer Note</div>
+            <Template2Page1
+              formData={initialStateT2}
+              updateField={noop}
+              updateNested={noop}
+              updateWasteRow={noop}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return null;
 }
 
 function PlaceholderPreview() {
