@@ -3,9 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import PDFPage1 from './PDFPage1';
 import Template2Page1 from './Template2Page1';
+import Template3Page1 from './Template3Page1';
 import { initialState } from '../hooks/useFormData';
 import t2Logo from '../assets/t2-logo.png';
+import t3Logo from '../assets/t3-logo.png';
 import { initialStateT2 } from '../hooks/useFormDataTemplate2';
+import { initialStateT3 } from '../hooks/useFormDataTemplate3';
 
 const API_BASE = `${(import.meta.env.VITE_API_URL || '').replace(/\/+$/, '')}/api`;
 
@@ -78,6 +81,34 @@ function FormPreview({ templateId }) {
               <span>0333 300 3448</span>
               <span>www.thefirstmile.co.uk</span>
             </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (templateId === 'biffa-quotation') {
+    return (
+      <div className="template-preview-wrapper">
+        <div className="template-preview-scaler">
+          <div className="pdf-page template-preview-page">
+            <div className="t3-header">
+              <div className="t3-header-left">
+                <div className="t3-biffa-logo">Biffa</div>
+              </div>
+              <div className="t3-header-right">
+                <div className="t3-company-info">
+                  <strong>Company Information</strong>
+                  <span>Biffa Group Limited</span>
+                </div>
+                <img src={t3Logo} alt="badge" className="t3-badge" />
+              </div>
+            </div>
+            <Template3Page1
+              formData={initialStateT3}
+              updateField={noop}
+              updateServiceRow={noop}
+            />
           </div>
         </div>
       </div>

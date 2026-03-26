@@ -1137,6 +1137,246 @@ input:focus, textarea:focus, select:focus {
 }
 
 /* =========================================
+   Template 3 - Biffa Quotation
+   ========================================= */
+.t3-page {
+  min-height: 665px; /* B5 landscape height: 176mm */
+  display: flex;
+  flex-direction: column;
+}
+.t3-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 32px 32px 16px;
+  min-height: 140px;
+}
+.t3-header-left {
+  display: flex;
+  align-items: stretch;
+  align-self: stretch;
+  gap: 16px;
+}
+.t3-logo-col {
+  flex-shrink: 0;
+  display: flex;
+  align-items: stretch;
+}
+.t3-biffa-logo {
+  background: #e31e24;
+  color: white;
+  font-size: 28px;
+  font-weight: 900;
+  font-style: italic;
+  padding: 20px 18px;
+  border-radius: 4px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+.t3-title-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.t3-title-col-bottom {
+  margin-top: auto;
+}
+.t3-header-date {
+  font-size: 12px;
+  color: #555;
+}
+.t3-header-date input {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background: transparent;
+  font-size: 12px;
+  color: #555;
+  width: 80px;
+  outline: none;
+  padding: 2px 0;
+}
+.t3-quote-heading {
+  font-size: 26px;
+  font-weight: 900;
+  color: #1a1a1a;
+  margin: 0;
+}
+.t3-header-right {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.t3-company-info {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  font-size: 11px;
+  color: #555;
+  line-height: 2;
+}
+.t3-company-info strong {
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+.t3-badge {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+}
+.t3-section {
+  padding: 6px 32px 8px;
+}
+.t3-ref {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #555;
+}
+.t3-ref input {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background: transparent;
+  font-size: 15px;
+  font-weight: 600;
+  width: 100px;
+  outline: none;
+}
+.t3-letter {
+  font-size: 13px;
+  margin-top: 12px;
+}
+.t3-letter-body {
+  font-size: 13px;
+  margin-top: 4px;
+}
+.t3-inline-input {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background: transparent;
+  font-size: 13px;
+  width: 140px;
+  outline: none;
+  padding: 1px 2px;
+}
+.t3-input-xs {
+  width: 40px;
+  text-align: center;
+}
+.t3-sub-header {
+  font-size: 13px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 4px;
+}
+.t3-terms-text input,
+.t3-full-input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background: transparent;
+  font-size: 12px;
+  padding: 4px 0;
+  outline: none;
+}
+.t3-pricing-layout {
+  display: flex;
+  gap: 16px;
+  margin-top: 6px;
+}
+.t3-pricing-notes {
+  flex: 1;
+}
+.t3-pricing-notes textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 12px;
+  resize: vertical;
+  outline: none;
+  font-family: inherit;
+}
+.t3-pricing-summary {
+  width: 200px;
+}
+.t3-price-label {
+  font-weight: 700;
+  font-size: 12px;
+  text-align: right !important;
+  padding-right: 10px !important;
+  width: 50%;
+}
+.t3-price-value {
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.t3-price-value input {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background: transparent;
+  font-size: 12px;
+  width: 70px;
+  outline: none;
+  font-weight: 600;
+}
+.t3-direct-debit {
+  font-size: 9px;
+  font-weight: 700;
+  text-align: center;
+  color: #555;
+  margin-top: 4px;
+}
+.t3-bottom {
+  margin-top: auto;
+  padding-bottom: 20px;
+}
+.t3-ready-box {
+  display: inline-block;
+  background: #4caf50;
+  color: white;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+.t3-contact-row {
+  display: flex;
+  gap: 24px;
+  margin-top: 6px;
+}
+.t3-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+.t3-contact-item input {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background: transparent;
+  font-size: 12px;
+  width: 160px;
+  outline: none;
+}
+.t3-acceptance {
+  font-size: 11px;
+  color: #666;
+  margin-top: 8px;
+}
+.t3-label {
+  font-weight: 700;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* =========================================
    Responsive
    ========================================= */
 @media (max-width: 1100px) {

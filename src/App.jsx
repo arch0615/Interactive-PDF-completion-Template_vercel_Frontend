@@ -8,7 +8,10 @@ import Template2Page2 from './components/Template2Page2';
 import PdfPreview from './components/PdfPreview';
 import { useFormData } from './hooks/useFormData';
 import { useFormDataTemplate2 } from './hooks/useFormDataTemplate2';
+import { useFormDataTemplate3 } from './hooks/useFormDataTemplate3';
+import Template3Page1 from './components/Template3Page1';
 import t2Logo from './assets/t2-logo.png';
+import t3Logo from './assets/t3-logo.png';
 import { getTemplateUrl } from './utils/api';
 
 function Template1Form() {
@@ -153,9 +156,97 @@ function Template2Form() {
   );
 }
 
+function Template3Form() {
+  const {
+    formData, isSubmitting, isPreviewing, previewUrl, downloadUrl, error,
+    updateField, updateServiceRow, previewForm, submitForm, resetForm,
+  } = useFormDataTemplate3();
+
+  useEffect(() => { previewForm(); }, []);
+
+  const handleSubmit = (e) => { e.preventDefault(); submitForm(); };
+
+  const toolbar = (
+    <div className="form-toolbar">
+      <div className="page-nav">
+        <button type="button" className="page-nav-btn active">Page 1</button>
+      </div>
+      <div className="form-actions">
+        <button type="button" className="btn-preview" disabled={isPreviewing} onClick={previewForm}>{isPreviewing ? 'Loading...' : 'Preview PDF'}</button>
+        <button type="button" className="btn-primary" disabled={isSubmitting} onClick={handleSubmit}>{isSubmitting ? 'Generating...' : 'Generate & Download'}</button>
+        <button type="button" className="btn-secondary" onClick={resetForm}>Reset</button>
+      </div>
+    </div>
+  );
+
+  return (
+    <div className="app-layout">
+      <div className="form-panel">
+        {toolbar}
+        <form onSubmit={handleSubmit}>
+          <div className="pdf-page t3-page">
+            <div className="t3-header">
+              <div className="t3-header-left">
+                <div className="t3-logo-col">
+                  <div className="t3-biffa-logo">Nationwide</div>
+                </div>
+                <div className="t3-title-col">
+                  <span className="t3-header-date">
+                    <input type="text" value={formData.quoteDate}
+                      onChange={(e) => updateField('quoteDate', e.target.value)} />
+                  </span>
+                  <div className="t3-title-col-bottom">
+                    <h2 className="t3-quote-heading">Quotation</h2>
+                    <div className="t3-ref">
+                      <span className="t3-label">Ref:</span>
+                      <input type="text" value={formData.quoteRef}
+                        onChange={(e) => updateField('quoteRef', e.target.value)} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="t3-header-right">
+                <div className="t3-company-info">
+                  <strong>Company Information</strong>
+                  <span>Biffa Group Limited, Coronation Road,</span>
+                  <span>Cressex, High Wycombe, HP12 3TZ</span>
+                  <span>&nbsp;</span>
+                  <span>VAT No: 537 911 627</span>
+                  <span>Registration No: 06409675</span>
+                </div>
+                <img src={t3Logo} alt="badge" className="t3-badge" />
+              </div>
+            </div>
+            <Template3Page1 formData={formData} updateField={updateField} updateServiceRow={updateServiceRow} />
+          </div>
+          {toolbar}
+          {error && <div className="error-message">{error}</div>}
+          {downloadUrl && (
+            <div className="success-message">
+              <p>PDF generated successfully!</p>
+              <a href={downloadUrl} className="btn-download" download>Download Completed PDF</a>
+            </div>
+          )}
+        </form>
+      </div>
+      <div className="preview-panel">
+        <h2>PDF Preview</h2>
+        {isPreviewing && <div className="preview-loading"><div className="spinner" /><span>Generating preview...</span></div>}
+        <PdfPreview pdfUrl={previewUrl || downloadUrl} />
+      </div>
+    </div>
+  );
+}
+
 function App() {
   const { templateId } = useParams();
   const navigate = useNavigate();
+
+  const FormComponent = templateId === 'first-mile-wtn'
+    ? Template2Form
+    : templateId === 'biffa-quotation'
+    ? Template3Form
+    : Template1Form;
 
   return (
     <div className="app">
@@ -167,7 +258,7 @@ function App() {
         <p>Fill in the form below to generate a completed PDF</p>
       </header>
 
-      {templateId === 'first-mile-wtn' ? <Template2Form /> : <Template1Form />}
+      <FormComponent />
     </div>
   );
 }
