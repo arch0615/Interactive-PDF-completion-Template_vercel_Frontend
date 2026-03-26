@@ -214,7 +214,9 @@ function Template3Form() {
                   <span>VAT No: 537 911 627</span>
                   <span>Registration No: 06409675</span>
                 </div>
-                <img src={t3Logo} alt="badge" className="t3-badge" />
+                <div className="t3-badge-logo">
+                  <div className="logo-graphic"><div className="logo-tri-striped" /><div className="logo-tri-solid" /></div>
+                </div>
               </div>
             </div>
             <Template3Page1 formData={formData} updateField={updateField} updateServiceRow={updateServiceRow} />

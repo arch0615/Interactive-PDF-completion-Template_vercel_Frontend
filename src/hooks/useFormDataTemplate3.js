@@ -8,27 +8,28 @@ export const initialStateT3 = {
   customerName: 'Ben Roberts',
   validDays: '30',
 
+  // --- Address & Contract ---
+  wasteCollectionAddress: 'Carlton., 28 DUNKIRK ROAD, SOUTHPORT, PR8 4RQ',
+  contractTerm: 'Our standard contract has an initial 12 month term, plus a notice period. Extended terms are available if required.',
+
   // --- Service Table ---
   serviceRows: [
-    { container: '', containerSize: '', quantity: '', lifts: '', wasteStream: '' },
-    { container: '', containerSize: '', quantity: '', lifts: '', wasteStream: '' },
-    { container: '', containerSize: '', quantity: '', lifts: '', wasteStream: '' },
-    { container: '', containerSize: '', quantity: '', lifts: '', wasteStream: '' },
+    { item: '1', wasteType: 'General Waste', containerSizeType: '240L CONTAINER', qty: '1', collectionFreq: 'Weekly', weightLimit: '20kg', liftRate: '£9.76', priceTonne: '', dailyRental: '£0.00', wtnCharge: '£1.55', totalWeekly: '£11.31' },
+    { item: '2', wasteType: 'Mixed Recycling', containerSizeType: '240L CONTAINER', qty: '1', collectionFreq: 'Weekly', weightLimit: '6kg', liftRate: '£5.19', priceTonne: '', dailyRental: '£0.00', wtnCharge: '£1.55', totalWeekly: '£6.74' },
+    { item: '', wasteType: '', containerSizeType: '', qty: '', collectionFreq: '', weightLimit: '', liftRate: '', priceTonne: '', dailyRental: '', wtnCharge: '', totalWeekly: '' },
   ],
 
-  // --- Contract Terms ---
-  contractTerms: 'Our standard contract has an initial 12 month term, plus a notice period. Extended terms are available if required',
-
   // --- Pricing ---
-  pricingNotes: '',
+  pricingNotes: '* Assumed Weight Limit - The maximum weight of waste you can supply (per lift, per container). Varies for Exchange services\n† Lift Rate / Haulage - Price per container, per visit, to collect your waste. If no price per tonne is stated, disposal of your waste is included\nPlastic Bags – Cost of collection is payable in advance, in multiples of 50 bags\n‡ WTN Standard Charge - The cost to complete your Waste Transfer Note documentation. In some instances only one WTN charge will apply\nOne-off container delivery charge is applicable to all new contracts except Plastic Bags (from £25 per container) and will appear on your first invoice',
   weeklyCharge: '18.05',
   monthlyCharge: '78.22',
-  annualCharge: '936.60',
-  vatRate: '20.00',
+  annualCharge: '938.60',
 
   // --- Contact ---
-  freephone: '',
-  email: '',
+  freephone: '0800 307 307',
+  freephoneHours: 'Mon - Fri, 8.30am - 5.00pm,\nexcluding public holidays',
+  email: 'sales@biffa.co.uk',
+  emailNote: 'Write to us confirming\nacceptance of this quote',
 };
 
 export function useFormDataTemplate3() {
