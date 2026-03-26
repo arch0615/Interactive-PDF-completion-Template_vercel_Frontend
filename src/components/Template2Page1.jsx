@@ -2,13 +2,15 @@ export default function Template2Page1({ formData, updateField, updateWasteRow }
   return (
     <>
       {/* ===== SECTION A ===== */}
-      <div className="t2-section-header">Section A - Description of Waste</div>
       <div className="t2-section">
         <table className="t2-table">
           <thead>
             <tr>
-              <th style={{ width: '32%' }}>A1. Description of Waste Being Transferred</th>
-              <th style={{ width: '30%' }}>EWC Codes</th>
+              <th colSpan={4} className="t2-table-section-header">Section A - Description of Waste</th>
+            </tr>
+            <tr>
+              <th style={{ width: '22%' }}>A1. Description of Waste Being Transferred</th>
+              <th style={{ width: '40%' }}>EWC Codes</th>
               <th style={{ width: '20%' }}>A2. How is the waste contained?</th>
               <th style={{ width: '18%' }}>A3. How Much Waste?</th>
             </tr>
@@ -39,8 +41,15 @@ export default function Template2Page1({ formData, updateField, updateWasteRow }
       </div>
 
       {/* ===== SECTION B ===== */}
-      <div className="t2-section-header">Section B - Current Holder of the Waste - Transferor</div>
       <div className="t2-section">
+        <table className="t2-field-table">
+          <tbody>
+            <tr>
+              <td colSpan={2} className="t2-sub-header-row" style={{ fontWeight: 700 }}>Section B - Current Holder of the Waste - Transferor</td>
+            </tr>
+          </tbody>
+        </table>
+
         <div className="t2-declaration">
           <span>By signing in Section E below, I confirm that I have fulfilled my duty to apply the waste hierarchy as required by Regulation 12 of the Waste (England and Wales) Regulations 2011</span>
           <label className="t2-cb-inline">
@@ -54,7 +63,8 @@ export default function Template2Page1({ formData, updateField, updateWasteRow }
         <table className="t2-field-table">
           <tbody>
             <tr>
-              <td colSpan={2} className="t2-sub-header-row">B1. Full Name</td>
+              <td className="t2-sub-header-row">B1. Full Name</td>
+              <td className="t2-value-cell"></td>
             </tr>
             <tr>
               <td className="t2-label-cell t2-label-indent">Company Name</td>
@@ -92,28 +102,21 @@ export default function Template2Page1({ formData, updateField, updateWasteRow }
               </td>
             </tr>
             <tr>
-              <td colSpan={2} className="t2-sub-header-row">B3. Are you:</td>
+              <td className="t2-sub-header-row">B3. Are you:</td>
+              <td className="t2-value-cell"></td>
             </tr>
             <tr>
               <td className="t2-label-cell t2-label-indent">The Producer of the waste?</td>
               <td className="t2-value-cell">
-                <select value={formData.b3IsProducer}
-                  onChange={(e) => updateField('b3IsProducer', e.target.value)}>
-                  <option value=""></option>
-                  <option value="Yes">Yes</option>
-                  <option value="No">No</option>
-                </select>
+                <input type="text" value={formData.b3IsProducer}
+                  onChange={(e) => updateField('b3IsProducer', e.target.value)} />
               </td>
             </tr>
             <tr>
               <td className="t2-label-cell t2-label-indent">A registered waste carrier, broker or dealer?</td>
               <td className="t2-value-cell">
-                <select value={formData.b3IsRegisteredCarrier}
-                  onChange={(e) => updateField('b3IsRegisteredCarrier', e.target.value)}>
-                  <option value=""></option>
-                  <option value="Yes">Yes</option>
-                  <option value="No">No</option>
-                </select>
+                <input type="text" value={formData.b3IsRegisteredCarrier}
+                  onChange={(e) => updateField('b3IsRegisteredCarrier', e.target.value)} />
               </td>
             </tr>
             <tr>
@@ -128,12 +131,15 @@ export default function Template2Page1({ formData, updateField, updateWasteRow }
       </div>
 
       {/* ===== SECTION C ===== */}
-      <div className="t2-section-header">Section C - Person Collecting the Waste - Transferee</div>
       <div className="t2-section">
         <table className="t2-field-table">
           <tbody>
             <tr>
-              <td colSpan={2} className="t2-sub-header-row">C1.</td>
+              <td colSpan={2} className="t2-sub-header-row" style={{ fontWeight: 700 }}>Section C - Person Collecting the Waste - Transferee</td>
+            </tr>
+            <tr>
+              <td className="t2-sub-header-row">C1.</td>
+              <td className="t2-value-cell"></td>
             </tr>
             <tr>
               <td className="t2-label-cell t2-label-indent">Company Name</td>
@@ -159,48 +165,33 @@ export default function Template2Page1({ formData, updateField, updateWasteRow }
             <tr>
               <td className="t2-label-cell" style={{ fontWeight: 600 }}>C2. Are you the local authority?</td>
               <td className="t2-value-cell">
-                <select value={formData.c2IsLocalAuthority}
-                  onChange={(e) => updateField('c2IsLocalAuthority', e.target.value)}>
-                  <option value=""></option>
-                  <option value="True">True</option>
-                  <option value="False">False</option>
-                </select>
+                <input type="text" value={formData.c2IsLocalAuthority}
+                  onChange={(e) => updateField('c2IsLocalAuthority', e.target.value)} />
               </td>
             </tr>
             <tr>
-              <td colSpan={2} className="t2-sub-header-row">C3. Are you:</td>
+              <td className="t2-sub-header-row">C3. Are you:</td>
+              <td className="t2-value-cell"></td>
             </tr>
             <tr>
               <td className="t2-label-cell t2-label-indent">The holder of an environmental permit?</td>
               <td className="t2-value-cell">
-                <select value={formData.c3HasEnvironmentalPermit}
-                  onChange={(e) => updateField('c3HasEnvironmentalPermit', e.target.value)}>
-                  <option value=""></option>
-                  <option value="Yes">Yes</option>
-                  <option value="No">No</option>
-                </select>
+                <input type="text" value={formData.c3HasEnvironmentalPermit}
+                  onChange={(e) => updateField('c3HasEnvironmentalPermit', e.target.value)} />
               </td>
             </tr>
             <tr>
               <td className="t2-label-cell t2-label-indent">Registered Waste exemption?</td>
               <td className="t2-value-cell">
-                <select value={formData.c3HasWasteExemption}
-                  onChange={(e) => updateField('c3HasWasteExemption', e.target.value)}>
-                  <option value=""></option>
-                  <option value="Yes">Yes</option>
-                  <option value="No">No</option>
-                </select>
+                <input type="text" value={formData.c3HasWasteExemption}
+                  onChange={(e) => updateField('c3HasWasteExemption', e.target.value)} />
               </td>
             </tr>
             <tr>
               <td className="t2-label-cell t2-label-indent">A registered waste carrier, broker or dealer?</td>
               <td className="t2-value-cell">
-                <select value={formData.c3IsRegisteredCarrier}
-                  onChange={(e) => updateField('c3IsRegisteredCarrier', e.target.value)}>
-                  <option value=""></option>
-                  <option value="Yes">Yes</option>
-                  <option value="No">No</option>
-                </select>
+                <input type="text" value={formData.c3IsRegisteredCarrier}
+                  onChange={(e) => updateField('c3IsRegisteredCarrier', e.target.value)} />
               </td>
             </tr>
             <tr>

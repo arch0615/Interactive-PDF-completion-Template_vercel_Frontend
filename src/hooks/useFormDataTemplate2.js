@@ -8,33 +8,31 @@ export const initialStateT2 = {
   ticketDate: '',
 
   // --- Section A: Description of Waste ---
-  wasteRows: Array.from({ length: 6 }, () => ({
-    description: '',
-    ewcCodes: '',
-    containment: '',
-    quantity: '',
-  })),
+  wasteRows: [
+    { description: 'General Waste', ewcCodes: '20 03 01', containment: 'Sack', quantity: 'Varies' },
+    { description: 'Mixed Recycling', ewcCodes: '20 01 01, 20 01 02, 20 01 39, 20 01 40', containment: 'Sack', quantity: 'Varies' },
+  ],
 
   // --- Section B: Current Holder - Transferor ---
-  wasteHierarchyConfirm: false,
-  b1CompanyName: '',
-  b1CompanyAddress: '',
-  b1PostCode: '',
-  b1SicCode: '',
-  b2UnitaryOrCouncil: '',
-  b3IsProducer: '',
-  b3IsRegisteredCarrier: '',
+  wasteHierarchyConfirm: true,
+  b1CompanyName: 'Zia Lucia (Holloway Road)',
+  b1CompanyAddress: '157 Holloway Road',
+  b1PostCode: 'N7 8LX',
+  b1SicCode: '64191',
+  b2UnitaryOrCouncil: 'Islington',
+  b3IsProducer: 'Yes',
+  b3IsRegisteredCarrier: 'No',
   b3CarrierRegNumber: '',
 
   // --- Section C: Person Collecting - Transferee ---
-  c1CompanyName: '',
-  c1CompanyAddress: '',
-  c1PostCode: '',
-  c2IsLocalAuthority: '',
-  c3HasEnvironmentalPermit: '',
-  c3HasWasteExemption: '',
-  c3IsRegisteredCarrier: '',
-  c3RegistrationNumber: '',
+  c1CompanyName: 'First Mile Ltd',
+  c1CompanyAddress: '233 High Holborn, London',
+  c1PostCode: 'WC1V 7DN',
+  c2IsLocalAuthority: 'False',
+  c3HasEnvironmentalPermit: 'No',
+  c3HasWasteExemption: 'No',
+  c3IsRegisteredCarrier: 'Yes',
+  c3RegistrationNumber: 'CBDU80647',
 
   // --- Section D: The Transfer ---
   d1CompanyName: '',

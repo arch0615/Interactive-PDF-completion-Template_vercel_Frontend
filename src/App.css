@@ -955,13 +955,12 @@ input:focus, textarea:focus, select:focus {
    Template 2 - Document-style form
    ========================================= */
 .t2-section-header {
-  background: #e0f2ef;
+  background: transparent;
   padding: 8px 32px;
   font-size: 13px;
   font-weight: 700;
   color: #1a1a1a;
-  border-bottom: 1px solid #b8d8d0;
-  border-top: 1px solid #b8d8d0;
+  border: none;
 }
 .t2-section {
   padding: 10px 32px 14px;
@@ -976,11 +975,8 @@ input:focus, textarea:focus, select:focus {
   font-size: 11px;
   color: #444;
   line-height: 1.5;
-  padding: 6px 0 8px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
+  padding: 8px 10px;
+  text-align: center;
 }
 .t2-cb-inline {
   display: inline-flex;
@@ -1003,7 +999,7 @@ input:focus, textarea:focus, select:focus {
   padding: 6px 10px;
 }
 .t2-label-cell {
-  width: 44%;
+  width: 50%;
   background: transparent;
   color: #333;
   font-size: 12px;
@@ -1050,6 +1046,13 @@ input:focus, textarea:focus, select:focus {
   border-collapse: collapse;
   border: 1px solid #bbb;
   font-size: 11px;
+}
+.t2-table-section-header {
+  text-align: left !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  padding: 8px 8px !important;
+  background: transparent;
 }
 .t2-table th {
   background: transparent;
@@ -1105,6 +1108,14 @@ input:focus, textarea:focus, select:focus {
   right: 8px;
 }
 
+.t2-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 32px;
+  margin-top: auto;
+  font-size: 12px;
+  color: #2bb5a0;
+}
 .t2-disclaimer {
   margin-top: 16px;
   font-size: 10px;

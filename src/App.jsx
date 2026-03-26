@@ -128,6 +128,11 @@ function Template2Form() {
             ) : (
               <Template2Page2 formData={formData} updateField={updateField} />
             )}
+            <div className="t2-footer">
+              <span>First Mile Limited</span>
+              <span>0333 300 3448</span>
+              <span>www.thefirstmile.co.uk</span>
+            </div>
           </div>
           {toolbar}
           {error && <div className="error-message">{error}</div>}
