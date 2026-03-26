@@ -35,10 +35,10 @@ export const initialStateT2 = {
   c3RegistrationNumber: 'CBDU80647',
 
   // --- Section D: The Transfer ---
-  d1CompanyName: '',
-  d1CompanyAddress: '',
-  d1PostCode: '',
-  d1DateFrom: '',
+  d1CompanyName: 'Zia Lucia (Holloway Road)',
+  d1CompanyAddress: '157 Holloway Road',
+  d1PostCode: 'N7 8LX',
+  d1DateFrom: '2026-01-20 - 2027-01-19',
   d1DateTo: '',
   d2CompanyName: '',
   d2CompanyAddress: '',
@@ -48,10 +48,10 @@ export const initialStateT2 = {
   // --- Section E: Signatures ---
   transferorSignature: null,
   transferorName: '',
-  transferorRepresenting: '',
+  transferorRepresenting: 'Zia Lucia (Holloway Road)',
   transfereeSignature: null,
-  transfereeName: '',
-  transfereeRepresenting: '',
+  transfereeName: 'First Mile',
+  transfereeRepresenting: 'First Mile Ltd',
 };
 
 export function useFormDataTemplate2() {

@@ -110,7 +110,7 @@ function Template2Form() {
       <div className="form-panel">
         {toolbar}
         <form onSubmit={handleSubmit}>
-          <div className="pdf-page">
+          <div className="pdf-page t2-page">
             <div className="pdf-header t2-header">
               <div className="t2-logo">
                 <img src={t2Logo} alt="logo" className="t2-logo-img" />
