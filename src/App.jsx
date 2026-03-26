@@ -121,8 +121,6 @@ function Template2Form() {
               </div>
               <div className="t2-header-right">
                 <span>Page {currentPage} of 2</span>
-                <span>Season Ticket WTN - Zia Lucia</span>
-                <span>(Holloway Road) - 20-01-2026</span>
               </div>
             </div>
             <div className="t2-title">Season Ticket Waste Transfer Note</div>
@@ -132,9 +130,9 @@ function Template2Form() {
               <Template2Page2 formData={formData} updateField={updateField} />
             )}
             <div className="t2-footer">
-              <span>First Mile Limited</span>
-              <span>0333 300 3448</span>
-              <span>www.thefirstmile.co.uk</span>
+              <span>Nationwide Waste &amp; Recycling Limited</span>
+              <span>0800 1123443</span>
+              <span>interactive-pdf-completion-template-ten.vercel.app</span>
             </div>
           </div>
           {toolbar}

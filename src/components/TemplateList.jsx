@@ -6,7 +6,7 @@ import Template2Page1 from './Template2Page1';
 import Template3Page1 from './Template3Page1';
 import { initialState } from '../hooks/useFormData';
 import t2Logo from '../assets/t2-logo.png';
-import t3Logo from '../assets/t3-logo.png';
+
 import { initialStateT2 } from '../hooks/useFormDataTemplate2';
 import { initialStateT3 } from '../hooks/useFormDataTemplate3';
 
@@ -65,8 +65,6 @@ function FormPreview({ templateId }) {
               </div>
               <div className="t2-header-right">
                 <span>Page 1 of 2</span>
-                <span>Season Ticket WTN - Zia Lucia</span>
-                <span>(Holloway Road) - 20-01-2026</span>
               </div>
             </div>
             <div className="t2-title">Season Ticket Waste Transfer Note</div>
@@ -77,9 +75,9 @@ function FormPreview({ templateId }) {
               updateWasteRow={noop}
             />
             <div className="t2-footer" style={{ marginTop: 'auto' }}>
-              <span>First Mile Limited</span>
-              <span>0333 300 3448</span>
-              <span>www.thefirstmile.co.uk</span>
+              <span>Nationwide Waste &amp; Recycling Limited</span>
+              <span>0800 1123443</span>
+              <span>interactive-pdf-completion-template-ten.vercel.app</span>
             </div>
           </div>
         </div>
@@ -91,17 +89,34 @@ function FormPreview({ templateId }) {
     return (
       <div className="template-preview-wrapper">
         <div className="template-preview-scaler">
-          <div className="pdf-page template-preview-page">
+          <div className="pdf-page template-preview-page t3-page">
             <div className="t3-header">
               <div className="t3-header-left">
-                <div className="t3-biffa-logo">Biffa</div>
+                <div className="t3-logo-col">
+                  <div className="t3-biffa-logo">Nationwide</div>
+                </div>
+                <div className="t3-title-col">
+                  <span className="t3-header-date">13.06.22</span>
+                  <div className="t3-title-col-bottom">
+                    <h2 className="t3-quote-heading">Quotation</h2>
+                    <div className="t3-ref">
+                      <span className="t3-label">Ref:</span> 206475
+                    </div>
+                  </div>
+                </div>
               </div>
               <div className="t3-header-right">
                 <div className="t3-company-info">
                   <strong>Company Information</strong>
-                  <span>Biffa Group Limited</span>
+                  <span>Biffa Group Limited, Coronation Road,</span>
+                  <span>Cressex, High Wycombe, HP12 3TZ</span>
+                  <span>&nbsp;</span>
+                  <span>VAT No: 537 911 627</span>
+                  <span>Registration No: 06409675</span>
                 </div>
-                <img src={t3Logo} alt="badge" className="t3-badge" />
+                <div className="t3-badge-logo">
+                  <div className="logo-graphic"><div className="logo-tri-striped" /><div className="logo-tri-solid" /></div>
+                </div>
               </div>
             </div>
             <Template3Page1
