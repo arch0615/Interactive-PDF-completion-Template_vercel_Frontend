@@ -62,6 +62,8 @@ function FormPreview({ templateId }) {
               </div>
               <div className="t2-header-right">
                 <span>Page 1 of 2</span>
+                <span>Season Ticket WTN - Zia Lucia</span>
+                <span>(Holloway Road) - 20-01-2026</span>
               </div>
             </div>
             <div className="t2-title">Season Ticket Waste Transfer Note</div>
@@ -71,6 +73,11 @@ function FormPreview({ templateId }) {
               updateNested={noop}
               updateWasteRow={noop}
             />
+            <div className="t2-footer" style={{ marginTop: 'auto' }}>
+              <span>First Mile Limited</span>
+              <span>0333 300 3448</span>
+              <span>www.thefirstmile.co.uk</span>
+            </div>
           </div>
         </div>
       </div>
