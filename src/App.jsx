@@ -186,7 +186,7 @@ function Template3Form() {
             <div className="t3-header">
               <div className="t3-header-left">
                 <div className="t3-logo-col">
-                  <div className="t3-biffa-logo">Nationwide Waste &amp; Recycling Limited</div>
+                  <div className="t3-biffa-logo">Nationwide Waste<br />&amp; Recycling Limited</div>
                 </div>
                 <div className="t3-title-col">
                   <span className="t3-header-date">
