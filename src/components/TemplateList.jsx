@@ -93,7 +93,13 @@ function FormPreview({ templateId }) {
             <div className="t3-header">
               <div className="t3-header-left">
                 <div className="t3-logo-col">
-                  <div className="t3-biffa-logo">Nationwide Waste<br />&amp; Recycling Limited</div>
+                  <div className="pdf-logo">
+                    <div className="logo-graphic"><div className="logo-tri-striped" /><div className="logo-tri-solid" /></div>
+                    <div className="logo-text">
+                      <strong>NATIONWIDE WASTE &amp; RECYCLING</strong>
+                      <span>RETHINKING THE FUTURE OF WASTE</span>
+                    </div>
+                  </div>
                 </div>
                 <div className="t3-title-col">
                   <span className="t3-header-date">13.06.22</span>
