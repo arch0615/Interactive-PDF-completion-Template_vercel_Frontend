@@ -77,7 +77,7 @@ function FormPreview({ templateId }) {
             <div className="t2-footer" style={{ marginTop: 'auto' }}>
               <span>Nationwide Waste &amp; Recycling Limited</span>
               <span>0800 1123443</span>
-              <span>interactive-pdf-completion-template-ten.vercel.app</span>
+              <span>www.nationwidewasteandrecycling.co.uk</span>
             </div>
           </div>
         </div>
@@ -93,7 +93,7 @@ function FormPreview({ templateId }) {
             <div className="t3-header">
               <div className="t3-header-left">
                 <div className="t3-logo-col">
-                  <div className="t3-biffa-logo">Nationwide</div>
+                  <div className="t3-biffa-logo">Nationwide Waste &amp; Recycling Limited</div>
                 </div>
                 <div className="t3-title-col">
                   <span className="t3-header-date">13.06.22</span>
@@ -108,11 +108,11 @@ function FormPreview({ templateId }) {
               <div className="t3-header-right">
                 <div className="t3-company-info">
                   <strong>Company Information</strong>
-                  <span>Biffa Group Limited, Coronation Road,</span>
-                  <span>Cressex, High Wycombe, HP12 3TZ</span>
+                  <span>Nationwide Waste &amp; Recycling Limited,</span>
+                  <span>28 Dunkirk Road, Southport PR8 4RQ</span>
                   <span>&nbsp;</span>
-                  <span>VAT No: 537 911 627</span>
-                  <span>Registration No: 06409675</span>
+                  <span>VAT No: 513 1751 24</span>
+                  <span>Company No: 06745189</span>
                 </div>
                 <div className="t3-badge-logo">
                   <div className="logo-graphic"><div className="logo-tri-striped" /><div className="logo-tri-solid" /></div>

@@ -1164,14 +1164,13 @@ input:focus, textarea:focus, select:focus {
   align-items: stretch;
 }
 .t3-biffa-logo {
-  background: #e31e24;
-  color: white;
-  font-size: 28px;
+  background: transparent;
+  color: #1a1a1a;
+  font-size: 18px;
   font-weight: 900;
   font-style: italic;
-  padding: 20px 18px;
-  border-radius: 4px;
-  line-height: 1;
+  padding: 10px 0;
+  line-height: 1.2;
   display: flex;
   align-items: center;
 }

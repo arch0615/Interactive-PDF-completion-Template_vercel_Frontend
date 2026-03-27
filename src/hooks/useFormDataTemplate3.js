@@ -17,6 +17,9 @@ export const initialStateT3 = {
     { item: '1', wasteType: 'General Waste', containerSizeType: '240L CONTAINER', qty: '1', collectionFreq: 'Weekly', weightLimit: '20kg', liftRate: '£9.76', priceTonne: '', dailyRental: '£0.00', wtnCharge: '£1.55', totalWeekly: '£11.31' },
     { item: '2', wasteType: 'Mixed Recycling', containerSizeType: '240L CONTAINER', qty: '1', collectionFreq: 'Weekly', weightLimit: '6kg', liftRate: '£5.19', priceTonne: '', dailyRental: '£0.00', wtnCharge: '£1.55', totalWeekly: '£6.74' },
     { item: '', wasteType: '', containerSizeType: '', qty: '', collectionFreq: '', weightLimit: '', liftRate: '', priceTonne: '', dailyRental: '', wtnCharge: '', totalWeekly: '' },
+    { item: '', wasteType: '', containerSizeType: '', qty: '', collectionFreq: '', weightLimit: '', liftRate: '', priceTonne: '', dailyRental: '', wtnCharge: '', totalWeekly: '' },
+    { item: '', wasteType: '', containerSizeType: '', qty: '', collectionFreq: '', weightLimit: '', liftRate: '', priceTonne: '', dailyRental: '', wtnCharge: '', totalWeekly: '' },
+    { item: '', wasteType: '', containerSizeType: '', qty: '', collectionFreq: '', weightLimit: '', liftRate: '', priceTonne: '', dailyRental: '', wtnCharge: '', totalWeekly: '' },
   ],
 
   // --- Pricing ---
@@ -26,9 +29,9 @@ export const initialStateT3 = {
   annualCharge: '938.60',
 
   // --- Contact ---
-  freephone: '0800 307 307',
+  freephone: '0800 1123443',
   freephoneHours: 'Mon - Fri, 8.30am - 5.00pm,\nexcluding public holidays',
-  email: 'sales@biffa.co.uk',
+  email: 'admin@nationwidewasteandrecycling.co.uk',
   emailNote: 'Write to us confirming\nacceptance of this quote',
 };
 
