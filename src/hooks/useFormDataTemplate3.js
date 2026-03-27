@@ -19,7 +19,6 @@ export const initialStateT3 = {
     { item: '', wasteType: '', containerSizeType: '', qty: '', collectionFreq: '', weightLimit: '', liftRate: '', priceTonne: '', dailyRental: '', wtnCharge: '', totalWeekly: '' },
     { item: '', wasteType: '', containerSizeType: '', qty: '', collectionFreq: '', weightLimit: '', liftRate: '', priceTonne: '', dailyRental: '', wtnCharge: '', totalWeekly: '' },
     { item: '', wasteType: '', containerSizeType: '', qty: '', collectionFreq: '', weightLimit: '', liftRate: '', priceTonne: '', dailyRental: '', wtnCharge: '', totalWeekly: '' },
-    { item: '', wasteType: '', containerSizeType: '', qty: '', collectionFreq: '', weightLimit: '', liftRate: '', priceTonne: '', dailyRental: '', wtnCharge: '', totalWeekly: '' },
   ],
 
   // --- Pricing ---

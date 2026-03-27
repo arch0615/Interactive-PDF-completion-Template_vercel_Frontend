@@ -116,7 +116,7 @@ export default function Template3Page1({ formData, updateField, updateServiceRow
           <div className="t3-ready-box">
             <strong>Ready to set up<br />your account?</strong>
           </div>
-          <div className="t3-contact-box">
+          <div className="t3-contact-box t3-contact-phone">
             <div className="t3-contact-title">Freephone</div>
             <div className="t3-contact-highlight">
               <input type="text" value={formData.freephone}
@@ -127,7 +127,7 @@ export default function Template3Page1({ formData, updateField, updateServiceRow
                 onChange={(e) => updateField('freephoneHours', e.target.value)} />
             </div>
           </div>
-          <div className="t3-contact-box">
+          <div className="t3-contact-box t3-contact-email">
             <div className="t3-contact-title">E-Mail</div>
             <div className="t3-contact-highlight">
               <input type="text" value={formData.email}
